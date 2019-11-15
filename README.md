@@ -1,8 +1,8 @@
 # 專題負責部分原始碼
 
-1. 3D模型展示 (three.JS)
-    HTML: dev/template/three.html
-    JS:   dev/js/tadashiScript.js
+1. 3D模型展示 (three.JS)<br>
+    HTML: dev/template/three.html<br>
+    JS:   dev/js/tadashiScript.js<br>
 
 2. 單車體驗 (canvas動畫)
     HTML: dev/template/bikeExp.html
