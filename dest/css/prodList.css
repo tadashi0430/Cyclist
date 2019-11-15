@@ -1,0 +1,92 @@
+.prod-list{
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 200px;
+  display: flex;
+  flex-wrap: row nowrap;
+  justify-content: space-around;
+  clear: both;
+}
+
+.prod {
+  padding: 0 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  list-style: none; }
+.prod:nth-child(odd){
+  background-color: #efe8cb;
+}
+.prod:nth-child(even){
+  background-color: #647d94;
+}
+.prod:nth-child(odd):hover{
+background-color: #f8f4e4;
+}
+.prod:nth-child(even):hover{
+background-color: #8098af;
+}
+  .prod .prod-shell {
+    margin: 30px 0;
+    padding: 5px 5px 85px;
+    box-sizing: border-box;
+    box-shadow: 0 0 0 1px #222; }
+    .prod .prod-shell .prod-pic {
+      display: block;
+      width: 100%;
+      height: 150px;
+      position: relative;
+      overflow: hidden; }
+      .prod .prod-shell .prod-pic images {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        max-width: 250px;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat; }
+    .prod .prod-shell .prod-title {
+      font-weight: 600;
+      line-height: 3; }
+    .prod .prod-shell .prod-context {
+      padding: 10px 0;
+      line-height: 1.3; }
+    .prod .prod-shell .prod-money {
+      display: inline-block;
+      font-size: 30px;
+      padding: 5px 0;
+      float: right;
+      clear: both; }
+    .prod .prod-shell .prod-buy-directly {
+      display: inline-block;
+      color: #fff;
+      background-color: #d26338;
+      padding: 10px 15px;
+      border-radius: 5px;
+      float: right;
+      cursor: pointer;
+      clear: both; }
+      .prod .prod-shell .prod-buy-directly:hover {
+        background-color: #db8462; }
+
+.prod-view{
+  text-align: center;
+  padding-top: 20px;
+}
+
+.prod-view h2{
+  display: inline-block;
+  padding: 15px 20px;
+  font-size: 30px;
+  background-color: #d16237;
+  border-radius: 15px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.prod-view h2:hover{
+  background-color: #f58c62;
+}

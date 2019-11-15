@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="images/favicon02.ico" type="image/x-icon" />
+    <title>商品頁面</title>
+    @@include('./template/linkScript.html')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/109/three.js"></script>
+    <script src="./js/OBJLoader.js"></script>
+    <script src="./js/OrbitControls.js"></script>
+    <script src="./js/MTLLoader.js"></script>
+</head>
+
+<body>
+    <!-- title  -->
+    @@include('./template/header.html')
+    @@include('./template/sideBar.html')
+
+    <!-- prod bread -->
+    <div class="prodInfo-wrap wrap">
+        <div class="container">
+            <div class="prod-bread row">
+                <div class="col-12">
+                    <a href="./CYShop.html">商品列表</a>
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    <a href="./CYShop.html">熱門商品</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- prod info -->
+    <div class="prodInfo-wrap wrap">
+        <div class="container">
+            <div class="prod-info row">
+                <div class="prod-info-m col-11">
+                    <div class="prod-pic-group col-12 col-lg-8">
+                        <div class="prod-pic-main col-12">
+                            <img class="prod-pic-show" src="../images/TCR-SL-2.jpg">
+                        </div>
+                        <div class="prod-pic-slider col-12">
+                            <div class="prod-pic-arrow col-1"></div>
+                            <div class="prod-pic-innerslider col-10">
+                                <div>
+                                    <div>
+                                        <img src="../images/TCR-SL-2.jpg">
+                                    </div>
+                                    <div>
+                                        <img src="../images/TCR-TCR-SLR.jpg">
+                                    </div>
+                                    <div>
+                                        <img src="../images/TCR-SL-2.jpg">
+                                    </div>
+                                    <div>
+                                        <img src="../images/TCR-TCR-SLR.jpg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prod-pic-arrow col-1"></div>
+                        </div>
+                    </div>
+                    <div class="prod-intro col-12 col-lg-4">
+                        <div class="center col-md-10">
+                            <h2 class="prod-title">公路車</h2>
+                            <h3 class="prod-name">TCR SL 2</h3>
+                            <p class="prod-introCont">TCR
+                                爬坡型公路競賽用車<br>急縱陡坡，急切入彎，更輕量更強騎乘效率，經典傳奇的TCR是你的全能競賽戰駒。多年以來在專業級比賽中屢屢勝出的 TCR Advanced
+                                SL，是無數個專業自行車選手的最佳選擇。全手工打造的碳纖維複合材質，全面優化的壓縮幾何設計、OverDrive 2 加大車首強化設計、MegaDrive 加大管件強化設計以及
+                                PowerCore
+                                整合式五通下叉動力傳導設計，達到輕量與剛性最完美的平衡，多功整合的一體式座桿，不僅節省了45g的重量更提升了騎乘品質及騎乘的路感，讓動力的傳輸更為直接。長距離、高難度、有著長陡坡與急彎的賽事，TCR
+                                都是全能型選手心中唯一的選擇。</p>
+                            <p>付款方式: 信用卡 <i class="fa fa-credit-card" aria-hidden="true"></i></p>
+                            <p>交貨方式: 貨運宅配 <i class="fa fa-car" aria-hidden="true"></i></p>
+                            <p>服務承諾</p>
+                            <p class="prod-money">價格: 28,000</p>
+                            <div class="prod-intro-btns">
+                                <ul>
+                                    <li class="prod-amount-arrow"><i class="fa fa-minus-square" aria-hidden="true"></i>
+                                    </li>
+                                    <li class="prod-amount-show col-4">0</li>
+                                    <li class="prod-amount-arrow"><i class="fa fa-plus-square" aria-hidden="true"></i>
+                                    </li>
+                                    <input type="button" class="prod-buy-join col-4 col-lg-10" value="加入購物車">
+                                </ul>
+                                <div>
+                                    <input type="button" class="prod-buy-directly col-5" value="立刻購買">
+                                    <input type="button" class="prod-save col-5" value="加入收藏">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- prod canvas -->
+    <div class="prodInfo-wrap model-wrap wrap">
+        <div class="container">
+            <div class="row">
+                <section class="center col-10">
+                    <canvas id="canvas" class="col-12" width="960" height=540 oncontextmenu="return false"></canvas>
+                    <div class="status">
+                        <div class="intro">
+                            <div class="intro-name">公路車
+                                <span class="intro-style">CTX600</span>
+                            </div>
+                            <div class="intro-text">公路車適合追求速度的您</div>
+                            <div class="intro-adv">優勢: 速度+20%</div>
+                            <div class="intro-buy" id="canvasToBuy">立即選購</div>
+                        </div>
+                        <div class="chart">
+                            <h3>速度</h3>
+                            <h3>避震</h3>
+                        </div>
+                        <div class="speed">
+                            <h5><span id="canvasSpeed">18</span>km/h</h5>
+                            <h6 id="canvasTime">00:17:25ms</h6>
+                        </div>
+                    </div>
+                    <div class="btns">
+                        <div class="eviBtns">
+                            <div class="Btn">
+                                <div class="eviSkew">
+                                    <h6>公路車</h6>
+                                </div>
+                            </div>
+                            <div class="Btn">
+                                <div class="eviSkew">
+                                    <h6>登山車</h6>
+                                </div>
+                            </div>
+                            <div class="Btn">
+                                <div class="eviSkew">
+                                    <h6>城市車</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="msBtns">
+                            <div class="add" id="add">加速</div>
+                            <div class="ms">
+                                <div class="msl" id="msl"></div>
+                                <div class="mss"></div>
+                                <div class="msr" id="msr"></div>
+                            </div>
+                            <div class="break" id="break">剎車</div>
+                        </div>
+                        <div class="ctgBtns">
+                            <div class="Btn">
+                                <div class="eviSkew">
+                                    <h6>公路</h6>
+                                </div>
+                            </div>
+                            <div class="Btn">
+                                <div class="eviSkew">
+                                    <h6>山地</h6>
+                                </div>
+                            </div>
+                            <div class="Btn">
+                                <div class="eviSkew">
+                                    <h6>城市</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- prod content -->
+    <div class="prodInfo-wrap wrap">
+        <div class="container">
+            <div class="row">
+                <div class="prod-cont prod-title col-12">
+                    <h2>商品介紹</h2>
+                    <img src="https://loremflickr.com/800/640/bike">
+                    <img src="https://loremflickr.com/800/640/bicycle">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- prod spec -->
+    <div class="prodInfo-wrap wrap">
+        <div class="container">
+            <div class="row">
+                <div class="prod-spec prod-title col-12">
+                    <h2>詳細規格</h2>
+                    <ul>車架系統
+                        <li>
+                            <div>年度</div>
+                            <div>2019</div>
+                        </li>
+                        <li>
+                            <div>車架</div>
+                            <div>GIANT ALUXX SL 輕量鋁合金車架</div>
+                        </li>
+                        <li>
+                            <div>前叉</div>
+                            <div>GIANT 碳纖維前叉 (鋁合金 OverDrive Steerer)</div>
+                        </li>
+                        <li>
+                            <div>前避震器</div>
+                            <div>N/A</div>
+                        </li>
+                        <li>
+                            <div>尺寸</div>
+                            <div>XS(42.5), S(44.5), M(47), M / L(47.0)</div>
+                        </li>
+                        <li>
+                            <div>顏色</div>
+                            <div>黑/紅</div>
+                        </li>
+                    </ul>
+                    <ul>操控系統
+                        <li>
+                            <div>車把手</div>
+                            <div>GIANT Connect 鋁合金 31.8</div>
+                        </li>
+                        <li>
+                            <div>車手豎桿</div>
+                            <div>GIANT 鋁合金</div>
+                        </li>
+                    </ul>
+                    <ul>變速系統
+                        <li>
+                            <div>變速把手</div>
+                            <div>SHIMANO Tiagra</div>
+                        </li>
+                        <li>
+                            <div>前變速器</div>
+                            <div>SHIMANO Tiagra</div>
+                        </li>
+                        <li>
+                            <div>後變速器</div>
+                            <div>SHIMANO Tiagra</div>
+                        </li>
+                        <li>
+                            <div>速別</div>
+                            <div>20</div>
+                        </li>
+                    </ul>
+                    <ul>煞車系統
+                        <li>
+                            <div>煞車把手</div>
+                            <div>SHIMANO TIAGRA</div>
+                        </li>
+                        <li>
+                            <div>煞車組</div>
+                            <div>TEKTRO TKB177</div>
+                        </li>
+                    </ul>
+                    <ul>傳動系統
+                        <li>
+                            <div>大齒盤</div>
+                            <div>SHIMANO TIAGRA 50/34T</div>
+                        </li>
+                        <li>
+                            <div>飛輪</div>
+                            <div>SHIMANO Tiagra 11-34T</div>
+                        </li>
+                        <li>
+                            <div>鏈條</div>
+                            <div>KMC X10</div>
+                        </li>
+                        <li>
+                            <div>腳踏</div>
+                            <div>WELLGO</div>
+                        </li>
+                    </ul>
+                    <ul>轉動系統
+                        <li>
+                            <div>輪圈</div>
+                            <div>GIANT S-R2 支援無內胎外胎</div>
+                        </li>
+                        <li>
+                            <div>花鼓</div>
+                            <div>GIANT S-R2</div>
+                        </li>
+                        <li>
+                            <div>鋼絲</div>
+                            <div>GIANT S-R2</div>
+                        </li>
+                        <li>
+                            <div>外胎</div>
+                            <div>GIANT GAVIA AC 2 700X25C WIRE TR</div>
+                        </li>
+                    </ul>
+                    <ul>其他
+                        <li>
+                            <div>坐墊</div>
+                            <div>Giant Contact Forward</div>
+                        </li>
+                        <li>
+                            <div>座管</div>
+                            <div>GIANT VARIANT 碳纖維</div>
+                        </li>
+                    </ul>
+                    <p class="prod-spec-remind">Cyclist對本網站所刊載之產品資料保留修改權利，恕不另行通知(包括有關設備，規格，型號，重量，顏色和材料等)，請以實際產品為主。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- prod recommand -->
+    <div class="prodInfo-wrap wrap">
+        <div class="container">
+            <div class="row">
+                <div class="prod-reco prod-title col-12">
+                    <h2>推薦商品</h2>
+                </div>
+                <ul class="prod-list col-12">
+                    @@include('./template/prod.html', {"img": "./images/TCR-SL-2.jpg", "name": "公路車", "text": "超好的車",
+                    "money": "$2,000"})
+                    @@include('./template/prod.html', {"img": "./images/TCR-SL-2.jpg", "name": "公路車", "text": "超好的車",
+                    "money": "$2,000"})
+                    @@include('./template/prod.html', {"img": "./images/TCR-SL-2.jpg", "name": "公路車", "text": "超好的車",
+                    "money": "$2,000"})
+                    @@include('./template/prod.html', {"img": "./images/TCR-SL-2.jpg", "name": "公路車", "text": "超好的車",
+                    "money": "$2,000"})
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- prod event -->
+    <div class="prodInfo-wrap wrap">
+        <div class="container">
+            <div class="row">
+                <div class="prod-event prod-title col-12">
+                    <h2>相關活動</h2>
+                    <ul class="prod-list col-12">
+                        @@include('./template/prod.html', {"img": "./images/TCR-SL-2.jpg", "name": "公路車", "text":
+                        "超好的車",
+                        "money": "$2,000"})
+                        @@include('./template/prod.html', {"img": "./images/TCR-SL-2.jpg", "name": "公路車", "text":
+                        "超好的車",
+                        "money": "$2,000"})
+                        @@include('./template/prod.html', {"img": "./images/TCR-SL-2.jpg", "name": "公路車", "text":
+                        "超好的車",
+                        "money": "$2,000"})
+                        @@include('./template/prod.html', {"img": "./images/TCR-SL-2.jpg", "name": "公路車", "text":
+                        "超好的車",
+                        "money": "$2,000"})
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    @@include('./template/footer.html');
+</body>
+
+</html>

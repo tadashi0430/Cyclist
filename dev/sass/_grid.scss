@@ -1,0 +1,6 @@
+@import"./_mixin.scss";
+@import"./var.scss";
+
+@include respond(small) {
+    @include grid(12)
+}

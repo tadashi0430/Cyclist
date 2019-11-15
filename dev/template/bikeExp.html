@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>單車體驗</title>
+    @@include('./linkScript.html')
+</head>
+
+<body>
+    <section class="center col-10">
+        <canvas id="canvas" class="col-12" width="960" height=540 oncontextmenu="return false"></canvas>
+        <div class="status">
+            <div class="intro">
+                <div class="intro-name">公路車
+                    <span class="intro-style">CTX600</span>
+                </div>
+                <div class="intro-text">公路車適合追求速度的您</div>
+                <div class="intro-adv">優勢: 速度+20%</div>
+                <div class="intro-buy" id="canvasToBuy">立即選購</div>
+            </div>
+            <div class="chart">
+                <h3>速度</h3>
+                <h3>避震</h3>
+            </div>
+            <div class="speed">
+                <h5><span id="canvasSpeed">18</span>km/h</h5>
+                <h6 id="canvasTime">00:17:25ms</h6>
+            </div>
+        </div>
+        <div class="btns">
+            <div class="eviBtns">
+                <div class="Btn">
+                    <div class="eviSkew">
+                        <h6>公路車</h6>
+                    </div>
+                </div>
+                <div class="Btn">
+                    <div class="eviSkew">
+                        <h6>登山車</h6>
+                    </div>
+                </div>
+                <div class="Btn">
+                    <div class="eviSkew">
+                        <h6>城市車</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="msBtns">
+                <div class="add" id="add">加速</div>
+                <div class="ms">
+                    <div class="msl" id="msl"></div>
+                    <div class="mss"></div>
+                    <div class="msr" id="msr"></div>
+                </div>
+                <div class="break" id="break">剎車</div>
+            </div>
+            <div class="ctgBtns">
+                <div class="Btn">
+                    <div class="eviSkew">
+                        <h6>公路</h6>
+                    </div>
+                </div>
+                <div class="Btn">
+                    <div class="eviSkew">
+                        <h6>山地</h6>
+                    </div>
+                </div>
+                <div class="Btn">
+                    <div class="eviSkew">
+                        <h6>城市</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

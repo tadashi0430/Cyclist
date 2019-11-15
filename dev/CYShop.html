@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="images/favicon02.ico" type="image/x-icon" />
+    <title>CY嚴選</title>
+    @@include('./template/linkScript.html');
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+    <script src="./js/CYShop.js"></script>
+
+<body>
+    <!-- title  -->
+    @@include('./template/header.html')
+
+    <div id="prodRender"> <!-- vue -->
+
+    @@include('./template/sideBar.html')
+
+    <!-- bannerTag -->
+    <div class="main-wrap banner-wrap wrap">
+        <div class="container">
+            <div class="bannerTag-row row">
+                <div class="banners col-11">
+                    <span><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
+                    <div>
+                        <ul class="banner-row" id="bannerRow">
+                            <li class="banner col-4"></li>
+                            <li class="banner col-4"></li>
+                            <li class="banner col-4"></li>
+                        </ul>
+                    </div>
+                    <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- products -->
+    <div class="main-wrap wrap">
+        <div class="container">
+            <div class="prod-row row">
+                <div class="prod-sort col-11">
+                    <div>
+                        <h2 id="prodListTitle">全部商品<span>({{prodAmount}})</span></h2>
+                    </div>
+                    <div>
+                        <select id="order" autofocus="true" @change="orderOnChange($event)">
+                            <option value="1">最新</option>
+                            <option value="2">最舊</option>
+                            <option value="3">最低價</option>
+                            <option value="4">最高價</option>
+                        </select>
+                        <label for="order">
+                            <i class="fa fa-sort" aria-hidden="true"></i>
+                        </label>
+                    </div>
+                </div>
+                <ul class="prod-list col-12">
+                        <prod-component v-for="row in prodList" :pname="row.pname" :price="row.price" :author="row.author"></prod-component>
+                    <!-- <li class="prod col-5 col-lg-4 col-xl-3">
+                        <div class="prod-shell">
+                            <div class="prod-pic">
+                                <img src=./images/TCR_SLR_M01.png>
+                            </div>
+                            <h3 class="prod-title">TCR SL 2</h3>
+                            <p class="prod-context">TCR 爬坡型公路競賽用車</p>
+                            <p class="prod-money">$28,000</p>
+                            <div class="prodIcon">
+                                <p class="prod_like"></p>
+                                <p class="prod_cart"></p>
+                            </div>
+                        </div>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- pages -->
+    <div class="main-wrap wrap">
+        <div class="container">
+            <div class="row">
+                <div class="pages col-12">
+                    <ul>
+                        <li>前一頁</li>
+                        <li v-for="page in pagesBtn" :class="{'pages_active': pagesBtnIsFirst}" @click="pageIsActive">{{page}}</li>
+                        <li>後一頁</li>
+                    </ul>
+                    <!-- <ul>
+                        <li>前一頁</li>
+                        <li class="pages_active">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>後一頁</li>
+                    </ul> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div> <!-- vue -->
+
+    <!-- footer -->
+
+    @@include('./template/footer.html');
+
+</body>
+
+</html>

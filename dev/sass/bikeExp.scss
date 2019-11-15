@@ -1,0 +1,520 @@
+@import "var";
+@import "mixin";
+@import "grid";
+
+.wrap {
+    .container {
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+
+        .row {
+            margin: 0 -20px;
+        }
+    }
+}
+
+//單車體驗
+#cycling {
+    width: 100% !important;
+    position: relative;
+    overflow: hidden;
+
+    #canvas {
+        display: block;
+        background-color: #aaa;
+    }
+
+    .status {
+        position: absolute;
+        top: 70px;
+        left: 10px;
+
+        .intro {
+            width: 200px;
+            height: 40px;
+            color: #efe8cb;
+            background-color: $colorStatus3;
+            position: absolute;
+            top: 50px;
+            left: 87px;
+
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: 100%;
+                width: 170px;
+                @include border(right, 30px, solid, transparent);
+                @include border(bottom, 20px, solid, $colorStatus3);
+            }
+
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 100%;
+                width: 170px;
+                @include border(right, 30px, solid, transparent);
+                @include border(top, 20px, solid, $colorStatus3);
+                z-index: 1;
+            }
+
+            .intro-name {
+                position: absolute;
+                margin: -12px 0 2px 10px;
+
+                .intro-style {
+                    padding-left: 10px;
+                    font-size: 12px;
+                }
+            }
+
+            .intro-text {
+                margin-top: 8px;
+                margin-left: 20px;
+                font-size: 13px;
+            }
+
+            .intro-adv {
+                margin-top: 3px;
+                font-size: 13px;
+                margin-left: 20px;
+            }
+
+            .intro-buy {
+                width: 100px;
+                height: 20px;
+                background-color: $colorStatusBuy;
+                position: absolute;
+                top: 100%;
+                right: 30px;
+                color: white;
+                font-size: 12px;
+                text-align: center;
+                line-height: 20px;
+                z-index: 2;
+                cursor: pointer;
+
+                &:before,
+                &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                }
+
+                &:before {
+                    right: 100%;
+                    @include border(left, 30px, solid, transparent);
+                    @include border(bottom, 20px, solid, $colorStatusBuy);
+                }
+
+                &:after {
+                    top: 0;
+                    left: 100%;
+                    @include border(right, 30px, solid, transparent);
+                    @include border(top, 20px, solid, $colorStatusBuy);
+                }
+
+                &:hover {
+                    background-color: lighten($colorStatusBuy, 10%);
+
+                    &:before {
+                        @include border(bottom, 20px, solid, lighten($colorStatusBuy, 10%));
+                    }
+
+                    &:after {
+                        @include border(top, 20px, solid, lighten($colorStatusBuy, 10%));
+                    }
+                }
+            }
+        }
+
+        .chart,
+        .speed {
+            width: 87px;
+            height: 50px;
+            position: absolute;
+            z-index: 20;
+
+            &:before,
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                border-left: 43.5px solid transparent;
+                border-right: 43.5px solid transparent;
+            }
+
+            &:before {
+                bottom: 100%;
+            }
+
+            &:after {
+                top: 100%;
+            }
+        }
+
+        .chart {
+            top: 30px;
+            background-color: $colorStatus1;
+            display: flex;
+            flex-flow: row nowrap;
+
+            &:before {
+                @include border(bottom, 30px, solid, $colorStatus1);
+            }
+
+            &:after {
+                @include border(top, 30px, solid, $colorStatus1);
+            }
+
+            h3 {
+                font-size: $h6;
+                flex-basis: 50%;
+                text-align: center;
+                color: #fff;
+                line-height: 50px;
+                transition: .3s;
+
+                &:first-child {
+                    background-color: lighten($mainMedium, 10%);
+                }
+
+                &:last-child {
+                    background-color: darken($mainMedium, 10%);
+                }
+
+                &:hover {
+                    flex-basis: 100%;
+                }
+            }
+        }
+
+        .speed {
+            top: 110px;
+            left: 43.5px;
+            background-color: $colorStatus2;
+            color: $colorStatusText;
+
+            &:before {
+                @include border(bottom, 30px, solid, $colorStatus2);
+            }
+
+            &:after {
+                @include border(top, 30px, solid, $colorStatus2);
+            }
+
+            h5 {
+                text-align: center;
+                padding-top: 5px;
+
+                span {
+                    font-size: 30px;
+                    padding-right: 4px;
+                }
+            }
+
+            h6 {
+                text-align: center;
+                font-size: 12px;
+                padding-top: 2px;
+            }
+        }
+    }
+
+    .btns {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 90%;
+        height: 10%;
+        // overflow: hidden;
+        display: flex;
+        flex-flow: row nowrap;
+
+        .eviBtns,
+        .ctgBtns {
+            width: 35%;
+            height: 100%;
+            text-align: center;
+            display: flex;
+            flex-flow: row nowrap;
+            cursor: pointer;
+
+            .Btn {
+                width: 30%;
+                height: 100%;
+                background-color: $sub;
+                flex-basis: 33.333333%;
+                transition: .3s;
+                box-shadow: 0 0 3px 1px #fff;
+
+                &:hover {
+                    transform-origin: bottom;
+                    flex-basis: 60%;
+                    box-shadow: 0 0 10px 0 #fff,
+                        0 0 0 1px #ccc;
+
+                    .eviSkew {
+                        transform: scaleY(.8);
+                        transform-origin: top center;
+                        transition: .3s;
+                        background-color: lighten($colorTitle, 20%);
+                    }
+                }
+
+                .eviSkew {
+                    background-color: $colorTitle;
+                    z-index: 10;
+                    height: 100%;
+
+                    h6 {
+                        padding-top: 20px;
+                        color: $colorStatusText;
+                        line-height: 1.4;
+                        font-size: 16px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        .eviBtns {
+
+            // left: 20px;
+            .Btn {
+                transform: skew(-20deg);
+                position: relative;
+                z-index: 10;
+                overflow: hidden;
+
+                h6 {
+                    transform: skew(20deg);
+                }
+
+                ;
+
+                &:hover {
+                    transform: skew(-20deg) scaleY(1.5);
+                }
+
+                &:before {
+                    transform: skew(20deg) scale(1.3);
+                    display: block;
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    margin: auto;
+                    z-index: -1;
+                }
+            }
+
+            // .Btn:nth-child(1):before {
+            //     @include img(url(../images/evi1.jpg), no-repeat, 50%, 150%)
+            // }
+
+            // .Btn:nth-child(2):before {
+            //     @include img(url(../images/evi2.jpg), no-repeat, 50% 20%, 150%)
+            // }
+
+            // .Btn:nth-child(3):before {
+            //     @include img(url(../images/evi3.jpg), no-repeat, 50% 20%, 150%)
+            // }
+        }
+
+        .ctgBtns {
+
+            // right: -10px;
+            .Btn {
+                transform: skew(20deg);
+                overflow: hidden;
+
+                &:hover {
+                    transform: skew(20deg) scaleY(1.5);
+                }
+
+                h6 {
+                    transform: skew(-20deg);
+                }
+
+                ;
+
+                &:before {
+                    transform: skew(-20deg) scale(1.3);
+                    display: block;
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    margin: auto;
+                    z-index: -1;
+                }
+            }
+
+            // .Btn:nth-child(1):before {
+            //     @include img(url(../images/evi1.jpg), no-repeat, 50%, 150%)
+            // }
+
+            // .Btn:nth-child(2):before {
+            //     @include img(url(../images/evi2.jpg), no-repeat, 50% 20%, 150%)
+            // }
+
+            // .Btn:nth-child(3):before {
+            //     @include img(url(../images/evi3.jpg), no-repeat, 50% 20%, 150%)
+            // }
+        }
+
+        .msBtns {
+            width: 30%;
+            height: 100%;
+            background-color: $mainMedium;
+            position: relative;
+            z-index: 0;
+            padding-top: 10px;
+
+            &:before,
+            &:after {
+                display: block;
+                content: '';
+                position: absolute;
+                top: 0;
+                z-index: -1;
+            }
+
+            &:before {
+                right: 100%;
+                @include border(bottom, 100px, solid, $mainMedium);
+                @include border(left, 30px, solid, transparent);
+            }
+
+            &:after {
+                left: 100%;
+                @include border(top, 100px, solid, transparent);
+                @include border(left, 30px, solid, $mainMedium);
+            }
+
+            .add,
+            .break {
+                width: 25%;
+                color: #fff;
+                text-align: center;
+                line-height: 50px;
+                position: absolute;
+
+                &:after {
+                    content: '';
+                    display: block;
+                    width: 42px;
+                    height: 42px;
+                    box-shadow: 0 0 0 1px #fff;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    margin: auto;
+                    border-radius: 50%;
+                }
+
+                &:hover:after {
+                    opacity: .5;
+                    background-color: #fff;
+                }
+            }
+
+            .add {
+                left: 0;
+            }
+
+            .break {
+                left: 75%;
+            }
+
+            .ms {
+                width: 50%;
+                height: 100%;
+                overflow: hidden;
+                position: absolute;
+                left: 25%;
+
+                .msl,
+                .msr {
+                    width: 50%;
+                    height: 100%;
+                    margin-top: 10px;
+                    background-color: #ccc;
+                    float: left;
+
+                    &:hover {
+                        background-color: #aaa;
+                    }
+                }
+
+                .msl {
+                    border-radius: 30px 0 0 0;
+                }
+
+                .msr {
+                    border-radius: 0 30px 0 0;
+                }
+
+                .mss {
+                    width: 10%;
+                    height: 100%;
+                    background-color: #999;
+                    position: absolute;
+                    top: 20px;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    border-radius: 5px 5px 0 0;
+                }
+            }
+        }
+
+
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .msBtns {
+        display: none;
+    }
+
+    .eviBtns,
+    .ctgBtns {
+        width: 50% !important;
+
+        .Btn {
+            transform: none !important;
+
+            h6 {
+                transform: none !important;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+    #cycling .btns .eviBtns .Btn .eviSkew h6,
+    #cycling .btns .ctgBtns .Btn .eviSkew h6 {
+        font-size: 26px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+
+    #cycling .btns .eviBtns .Btn .eviSkew h6,
+    #cycling .btns .ctgBtns .Btn .eviSkew h6 {
+        font-size: 30px;
+    }
+}

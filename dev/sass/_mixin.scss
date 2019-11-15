@@ -1,0 +1,197 @@
+@mixin generator($classname, $max) {
+
+    @for $classname from 1 through $max {
+
+        .#{$classname} {
+            @content;
+        }
+
+    }
+
+}
+
+@mixin respond($breakpoint) {
+
+    @if $breakpoint=='desktop' {
+        @media all and (min-width: $large) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint=='medium' {
+        @media all and (min-width: $medium) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint=='small' {
+        @media all and (max-width: $small) {
+            @content;
+        }
+    }
+}
+
+@mixin flexalign {
+    display: flex;
+    align-items: center;
+    @content;
+}
+
+//動畫
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+
+    ;
+
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+
+    ;
+
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+
+    ;
+
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+
+    ;
+
+    @keyframes #{$animation-name} {
+        @content;
+    }
+
+    ;
+}
+
+
+//grid
+@mixin grid($num) {
+    @for $i from 1 through $num {
+
+        .col-#{$i} {
+            width: ($i / $num) * 100%;
+        }
+    }
+}
+
+//////////////正//////////////////
+
+//border
+
+@mixin border($dir, $width, $style, $color) {
+    border-#{$dir}: $width $style $color;
+}
+
+@mixin img($a, $b, $c, $d) {
+    background-image: $a;
+    background-repeat: $b;
+    background-position: $c;
+    background-size: $d;
+}
+
+@mixin cross($color) {
+
+    &:before,
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 100%;
+        height: 2px;
+        background-color: $color;
+    }
+
+    &:before {
+        transform: rotateZ(45deg);
+    }
+
+    &:after {
+        transform: rotateZ(-45deg);
+    }
+
+    &:hover:before {
+        transform: rotateZ(135deg);
+        transition: .3s;
+    }
+
+    &:hover:after {
+        transform: rotateZ(45deg);
+        transition: .3s;
+    }
+}
+
+@mixin arrow($bgc, $a) {
+    background-color: $bgc;
+    cursor: pointer;
+    position: relative;
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: $a;
+        height: $a;
+        box-shadow: 1px 1px 0 0 #eee;
+    }
+}
+
+@mixin hover($i, $bgc) {
+    &:nth-child(#{$i}) {
+        background-color: $bgc;
+
+        &:hover {
+            background-color: lighten($bgc, 10%);
+        }
+    }
+}
+
+//other
+@mixin respond($breakpoint) {
+
+    @if $breakpoint=='desktop' {
+        @media all and (min-width: $large) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint=='medium' {
+        @media all and (min-width: $medium) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint=='small' {
+        @media all and (max-width: 768px) {
+            @content;
+        }
+    }
+}
+
+// control
+
+.center {
+    margin: 0 auto;
+}
+
+.addToCart {
+    background: #ccc;
+}
+
+/////////////////////////////////
