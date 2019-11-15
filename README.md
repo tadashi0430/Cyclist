@@ -4,17 +4,17 @@
     HTML: dev/template/three.html<br>
     JS:   dev/js/tadashiScript.js<br>
 
-2. 單車體驗 (canvas動畫)
-    HTML: dev/template/bikeExp.html
-    SASS:  dev/sass/bikeExp.scss
-    JS:   dev/js/tadashiScript.js
+2. 單車體驗 (canvas動畫)<br>
+    HTML: dev/template/bikeExp.html<br>
+    SASS:  dev/sass/bikeExp.scss<br>
+    JS:   dev/js/tadashiScript.js<br>
 
-3. 商城頁 (Vue.JS)
-    HTML: dev/CYShop.html
-    SASS:  dev/sass/shop&bikeExp.scss
-    JS:   dev/js/CYShop.js
-    PHP:  dev/php/CYShop.php
+3. 商城頁 (Vue.JS)<br>
+    HTML: dev/CYShop.html<br>
+    SASS:  dev/sass/shop&bikeExp.scss<br>
+    JS:   dev/js/CYShop.js<br>
+    PHP:  dev/php/CYShop.php<br>
 
-4. 前端工具
-    gulp:  gulpfile.js
-    npm:   package.json
+4. 前端工具<br>
+    gulp:  gulpfile.js<br>
+    npm:   package.json<br>
